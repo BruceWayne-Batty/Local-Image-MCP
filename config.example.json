@@ -1,0 +1,9 @@
+{
+  "baseUrl": "https://api.example.com/v1",
+  "apiKey": "sk-replace-with-your-key",
+  "defaultProtocol": "openai",
+  "openAIModel": "gpt-image-1.5",
+  "geminiModel": "gemini-3.1-flash-image",
+  "outputDir": "/absolute/path/to/output",
+  "timeoutMs": 120000
+}

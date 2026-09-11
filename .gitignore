@@ -1,0 +1,28 @@
+# Dependencies and build output
+node_modules/
+dist/
+*.tsbuildinfo
+
+# Generated images and test output
+output/
+coverage/
+.nyc_output/
+
+# Secrets and local configuration
+.env
+.env.*
+!.env.example
+/config.json
+/config.local.json
+
+# Temporary files and logs
+*.log
+.cache/
+.tmp/
+tmp/
+
+# Editors and operating systems
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
