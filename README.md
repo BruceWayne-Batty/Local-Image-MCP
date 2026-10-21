@@ -179,6 +179,52 @@ Gemini 示例：
 }
 ```
 
+### `image_edit`
+
+根据提示词编辑一张源图片，支持 OpenAI/GPT 与 Gemini 协议。结果同样会保存到本地，并作为 MCP 图片内容返回。
+
+| 参数 | 适用协议 | 说明 |
+|---|---|---|
+| `image` | 全部 | 必填。源图片可以是本地文件绝对路径、`data:image/...;base64,...`，或纯 Base64；仅支持 PNG、JPEG、WebP |
+| `prompt` | 全部 | 必填，描述要怎样修改源图片 |
+| `protocol` | 全部 | `openai` 或 `gemini`；不填使用默认协议 |
+| `model` | 全部 | 覆盖本次请求使用的模型 |
+| `size` | OpenAI/GPT | 输出图片尺寸，如 `1024x1024`、`auto` |
+| `quality` | OpenAI/GPT | 如 `low`、`medium`、`high`、`auto` |
+| `aspectRatio` | Gemini | 如 `1:1`、`16:9`、`9:16` |
+| `imageSize` | Gemini | 如 `1K`、`2K`、`4K`，由模型决定是否支持 |
+| `count` | 全部 | 生成数量，范围 1–4；部分模型只允许 1 |
+| `negativePrompt` | 全部 | 不希望出现在编辑结果中的内容 |
+| `seed` | Gemini | 随机种子，由模型和网关决定是否支持 |
+| `fileName` | 全部 | 本地保存文件名，不需要扩展名 |
+
+OpenAI/GPT 示例：
+
+```json
+{
+  "image": "/Users/your-name/Pictures/cat.png",
+  "prompt": "保留猫的姿势和构图，把毛色改成橘色，并加上宇航员头盔",
+  "protocol": "openai",
+  "model": "gpt-image-1.5",
+  "size": "1024x1024",
+  "quality": "high",
+  "fileName": "astronaut-cat-edit"
+}
+```
+
+Gemini 示例：
+
+```json
+{
+  "image": "data:image/png;base64,iVBORw0KGgoAAAANS...",
+  "prompt": "将天空改为温暖的日落，保持其他区域不变",
+  "protocol": "gemini",
+  "model": "gemini-3.1-flash-image",
+  "aspectRatio": "16:9",
+  "imageSize": "2K"
+}
+```
+
 ## 开发与测试
 
 ```bash

@@ -25,6 +25,21 @@ export interface GenerateImageInput {
   fileName?: string;
 }
 
+export interface EditImageInput {
+  image: string;
+  prompt: string;
+  protocol?: ImageProtocol;
+  model?: string;
+  size?: string;
+  aspectRatio?: string;
+  imageSize?: string;
+  count?: number;
+  quality?: string;
+  negativePrompt?: string;
+  seed?: number;
+  fileName?: string;
+}
+
 export interface GeneratedImage {
   data: string;
   mimeType: string;
