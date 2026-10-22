@@ -60,7 +60,7 @@ macOS/Linux 下，安装程序会把目录权限设为 `700`、文件权限设�
   "baseUrl": "https://api.example.com/v1",
   "apiKey": "sk-请填写自己的Key",
   "defaultProtocol": "openai",
-  "openAIModel": "gpt-image-1.5",
+  "openAIModel": "gpt-image-2.5-sunburst",
   "geminiModel": "gemini-3.1-flash-image",
   "outputDir": "/Users/your-name/Pictures/new-api-image-mcp",
   "timeoutMs": 120000
@@ -159,7 +159,7 @@ OpenAI/GPT 示例：
 {
   "prompt": "一只戴宇航员头盔的橘猫，电影级光影，细节丰富",
   "protocol": "openai",
-  "model": "gpt-image-1.5",
+  "model": "gpt-image-2.5-sunburst",
   "size": "1024x1024",
   "quality": "high",
   "fileName": "astronaut-cat"
@@ -205,7 +205,7 @@ OpenAI/GPT 示例：
   "image": "/Users/your-name/Pictures/cat.png",
   "prompt": "保留猫的姿势和构图，把毛色改成橘色，并加上宇航员头盔",
   "protocol": "openai",
-  "model": "gpt-image-1.5",
+  "model": "gpt-image-2.5-sunburst",
   "size": "1024x1024",
   "quality": "high",
   "fileName": "astronaut-cat-edit"

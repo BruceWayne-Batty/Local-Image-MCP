@@ -78,7 +78,7 @@ export function loadConfig(): AppConfig {
       value("IMAGE_PROTOCOL", stored.defaultProtocol),
     ),
     openAIModel:
-      value("OPENAI_IMAGE_MODEL", stored.openAIModel) || "gpt-image-1.5",
+      value("OPENAI_IMAGE_MODEL", stored.openAIModel) || "gpt-image-2.5-sunburst",
     geminiModel:
       value("GEMINI_IMAGE_MODEL", stored.geminiModel) ||
       "gemini-3.1-flash-image",

@@ -41,7 +41,7 @@ try {
   );
   const openAIModel = await ask(
     "OpenAI/GPT 默认模型",
-    current.openAIModel || "gpt-image-1.5",
+    current.openAIModel || "gpt-image-2.5-sunburst",
   );
   const geminiModel = await ask(
     "Gemini 默认模型",

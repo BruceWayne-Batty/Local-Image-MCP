@@ -71,3 +71,30 @@ test("缺少地址和 Key 时提示运行配置向导", { concurrency: false }, 
     await rm(dir, { recursive: true, force: true });
   }
 });
+
+test("未配置 OpenAI 模型时使用最新默认模型", { concurrency: false }, async () => {
+  const oldEnv = Object.fromEntries(envNames.map((name) => [name, process.env[name]]));
+  const dir = await mkdtemp(path.join(os.tmpdir(), "image-mcp-default-model-"));
+  const configPath = path.join(dir, "config.json");
+  await writeFile(
+    configPath,
+    JSON.stringify({
+      baseUrl: "https://api.example.com/v1",
+      apiKey: "test-key",
+    }),
+  );
+
+  try {
+    for (const name of envNames) delete process.env[name];
+    process.env.IMAGE_MCP_CONFIG = configPath;
+
+    assert.equal(loadConfig().openAIModel, "gpt-image-2.5-sunburst");
+  } finally {
+    for (const name of envNames) {
+      const oldValue = oldEnv[name];
+      if (oldValue === undefined) delete process.env[name];
+      else process.env[name] = oldValue;
+    }
+    await rm(dir, { recursive: true, force: true });
+  }
+});
